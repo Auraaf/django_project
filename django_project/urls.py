@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #1 include just chop off the initial part of asked url add
     #i.e 'blog' now only empty string is remain , which will be
     # searched in blog.urls
+    path('register/', user_views.register, name = 'register'),
     path('', include('blog.urls')),
+    #url for
+
 ]
